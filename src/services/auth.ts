@@ -22,7 +22,7 @@ export const signInWithGoogle = async () => {
 export const signOut = async () => {
   try {
     await firebaseSignOut(auth);
-    window.location.href = "/";
+    window.location.href = "/login";
   } catch (error) {
     console.log(error);
   }

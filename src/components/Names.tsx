@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { onValue, push } from "firebase/database";
 import { friendsRef } from "../services/database";
-import Nav from "./Nav";
+import Base from "./Base";
 
 interface Friend {
   name: string;
@@ -31,8 +31,7 @@ const Names = () => {
   };
 
   return (
-    <>
-      <Nav />
+    <Base>
       <form onSubmit={handleSubmit(submitTodo)}>
         <label>Name: </label>
         <input
@@ -55,7 +54,7 @@ const Names = () => {
           <p>You have not submitted any friend's name yet</p>
         )}
       </section>
-    </>
+    </Base>
   );
 };
 

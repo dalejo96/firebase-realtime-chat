@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { auth, signInWithGoogle } from "../services/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import Nav from "./Nav";
+import Base from "./Base";
 
 const Login = () => {
   const [user, setUser] = useState(() => auth.currentUser);
@@ -33,13 +33,12 @@ const Login = () => {
   if (isInitializing) return <>"Loading..."</>;
 
   return (
-    <>
-      <Nav />
+    <Base>
       {!user && (
         <button onClick={logInWithProvider}>Sign in with Google</button>
       )}
       {error && <span>{error}</span>}
-    </>
+    </Base>
   );
 };
 

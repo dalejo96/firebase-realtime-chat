@@ -1,11 +1,10 @@
-import Nav from "./Nav";
+import Base from "./Base";
 
 const Welcome = () => {
   return (
-    <>
-      <Nav />
+    <Base>
       <h1>Welcome to the chat app!</h1>
-    </>
+    </Base>
   );
 };
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { auth } from "../services/auth";
@@ -8,21 +9,20 @@ interface Props {
 }
 
 const Nav = () => {
-  const isUserConnected = auth.currentUser;
+  const [user, setUser] = useState(() => auth.currentUser);
+
+  useEffect(() => {
+    if (!auth.currentUser) return;
+    setUser(auth.currentUser);
+  }, [auth]);
 
   return (
-    <>
-      <nav>
-        <Link to="/">Welcome</Link>
-        {!isUserConnected ? (
-          <Link to="/login">Login</Link>
-        ) : (
-          <Link to="/chat">Chat</Link>
-        )}
-        <Link to="/names">Names</Link>
-        {isUserConnected && <button onClick={signOut}>Logout</button>}
-      </nav>
-    </>
+    <nav>
+      <Link to="/">Welcome</Link>
+      {!user ? <Link to="/login">Login</Link> : <Link to="/chat">Chat</Link>}
+      <Link to="/names">Names</Link>
+      {user && <button onClick={signOut}>Logout</button>}
+    </nav>
   );
 };
 

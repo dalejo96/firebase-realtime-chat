@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { auth, signInWithGoogle } from "../services/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import Base from "./Base";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState(() => auth.currentUser);
@@ -10,7 +11,9 @@ const Login = () => {
 
   const logInWithProvider = async () => {
     try {
-      await signInWithGoogle();
+      const authUser = await signInWithGoogle();
+      if (authUser) setUser(authUser.user);
+      window.location.href = "/chat";
     } catch (error) {
       setError(error as string);
     }
@@ -31,6 +34,7 @@ const Login = () => {
   }, []);
 
   if (isInitializing) return <p>"Loading..."</p>;
+  if (user) return <Navigate to="/chat" replace />;
 
   return (
     <Base>

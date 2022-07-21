@@ -1,7 +1,7 @@
 import { onValue, push, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { auth } from "../services/auth";
 import { database } from "../services/database";
 import Base from "./Base";
@@ -13,7 +13,7 @@ interface Message {
 }
 
 const Chat = () => {
-  const [user, setUser] = useState(() => auth.currentUser);
+  const [user] = useState(() => auth.currentUser);
   const { groupName } = useParams<{ groupName: string }>();
   const groupReference = ref(database, `groups/${groupName}/messages`);
   const [messages, setMessages] = useState<Message[]>([]);

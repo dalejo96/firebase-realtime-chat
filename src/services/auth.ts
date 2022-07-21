@@ -12,8 +12,8 @@ export const auth = getAuth(firebase);
 export const signInWithGoogle = async () => {
   const googleProvider = new GoogleAuthProvider();
   try {
-    await signInWithPopup(auth, googleProvider);
-    window.location.href = "/chat";
+    const authUser = await signInWithPopup(auth, googleProvider);
+    return authUser;
   } catch (error) {
     console.log(error);
   }

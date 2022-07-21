@@ -11,9 +11,7 @@ const Login = () => {
 
   const logInWithProvider = async () => {
     try {
-      const authUser = await signInWithGoogle();
-      if (authUser) setUser(authUser.user);
-      window.location.href = "/chat";
+      await signInWithGoogle();     
     } catch (error) {
       setError(error as string);
     }

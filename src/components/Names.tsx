@@ -8,7 +8,7 @@ interface Friend {
   name: string;
 }
 
-const Names = () => {
+const Friends = () => {
   const [todo, setTodo] = useState<Friend[]>([]);
 
   const {
@@ -58,4 +58,4 @@ const Names = () => {
   );
 };
 
-export default Names;
+export default Friends;

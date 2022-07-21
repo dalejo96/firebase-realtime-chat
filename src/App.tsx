@@ -3,7 +3,7 @@ import Chat from "./components/Chat";
 
 import GeneralChat from "./components/GeneralChat";
 import Login from "./components/Login";
-import Names from "./components/Names";
+import Friends from "./components/Names";
 import Welcome from "./components/Welcome";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="login" element={<Login />} />
-      <Route path="names" element={<Names />} />
+      <Route path="friends" element={<Friends />} />
       <Route path="chat" element={<GeneralChat />} />
       <Route path="chat/group/:groupName" element={<Chat />} />
     </Routes>

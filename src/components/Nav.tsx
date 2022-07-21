@@ -20,7 +20,7 @@ const Nav = () => {
     <nav>
       <Link to="/">Welcome</Link>
       {!user ? <Link to="/login">Login</Link> : <Link to="/chat">Chat</Link>}
-      <Link to="/names">Names</Link>
+      <Link to="/friends">Friends</Link>
       {user && <button onClick={signOut}>Logout</button>}
     </nav>
   );

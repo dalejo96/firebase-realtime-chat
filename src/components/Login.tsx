@@ -30,7 +30,7 @@ const Login = () => {
     return unsubscribe();
   }, []);
 
-  if (isInitializing) return <>"Loading..."</>;
+  if (isInitializing) return <p>"Loading..."</p>;
 
   return (
     <Base>

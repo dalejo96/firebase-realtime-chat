@@ -10,6 +10,7 @@ interface Message {
   description: string;
   timestamp: number;
   name: string;
+  owner: string;
 }
 
 const Chat = () => {
@@ -38,6 +39,7 @@ const Chat = () => {
       description: data.description,
       timestamp: new Date().getTime(),
       name: user.displayName,
+      owner: user.uid,
     });
     reset();
   };

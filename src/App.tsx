@@ -1,10 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Chat from "./components/Chat";
 
-import GeneralChat from "./components/GeneralChat";
+import WelcomeChat from "./components/WelcomeChat";
 import Login from "./components/Login";
 import Friends from "./components/Names";
 import Welcome from "./components/Welcome";
+import GeneralChat from "./components/GeneralChat";
 
 const App = () => {
   return (
@@ -12,8 +13,9 @@ const App = () => {
       <Route path="/" element={<Welcome />} />
       <Route path="login" element={<Login />} />
       <Route path="friends" element={<Friends />} />
-      <Route path="chat" element={<GeneralChat />} />
+      <Route path="chat" element={<WelcomeChat />} />
       <Route path="chat/group/:groupName" element={<Chat />} />
+      <Route path="general-chat" element={<GeneralChat />} />
     </Routes>
   );
 };

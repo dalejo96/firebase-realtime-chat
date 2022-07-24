@@ -3,6 +3,8 @@ import { auth, signInWithGoogle } from "../services/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import Base from "./Base";
 import { Navigate } from "react-router-dom";
+import { Box, Button, Container, Typography } from "@mui/material";
+import { BorderColor, Google } from "@mui/icons-material";
 
 const Login = () => {
   const [user, setUser] = useState(() => auth.currentUser);
@@ -11,7 +13,7 @@ const Login = () => {
 
   const logInWithProvider = async () => {
     try {
-      await signInWithGoogle();     
+      await signInWithGoogle();
     } catch (error) {
       setError(error as string);
     }
@@ -36,10 +38,41 @@ const Login = () => {
 
   return (
     <Base>
-      {!user && (
-        <button onClick={logInWithProvider}>Sign in with Google</button>
-      )}
-      {error && <span>{error}</span>}
+      <Box
+        sx={{
+          m: 8,
+        }}
+      >
+        <Container
+          maxWidth="sm"
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+          >
+            If you want to create groups and share messages with your friends.
+            Sign up using a Google account.
+          </Typography>
+          {!user && (
+            <Button
+              variant="contained"
+              startIcon={<Google />}
+              onClick={logInWithProvider}
+            >
+              Log in with Google
+            </Button>
+          )}
+          {error && <span>{error}</span>}
+        </Container>
+      </Box>
     </Base>
   );
 };

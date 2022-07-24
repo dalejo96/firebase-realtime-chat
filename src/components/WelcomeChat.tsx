@@ -1,3 +1,4 @@
+import { Container, Typography } from "@mui/material";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { auth } from "../services/auth";
@@ -11,9 +12,20 @@ const WelcomeChat = () => {
 
   return (
     <Base>
-      <h1>Welcome to the chat!</h1>
-      <h3>Click on one group to chat with your friends!</h3>
-      <Groups />
+      <Container maxWidth="sm" sx={{ p: 5 }}>
+        <Typography
+          variant="h4"
+          align="center"
+          color="text.secondary"
+          paragraph
+        >
+          Welcome to the chat!
+        </Typography>
+        <Typography variant="h6" align="justify" color="text.secondary">
+          Click on one group to chat with your friends!
+        </Typography>
+        <Groups />
+      </Container>
     </Base>
   );
 };

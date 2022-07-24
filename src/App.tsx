@@ -3,7 +3,7 @@ import Chat from "./components/Chat";
 
 import WelcomeChat from "./components/WelcomeChat";
 import Login from "./components/Login";
-import Friends from "./components/Names";
+import Friends from "./components/Friends";
 import Welcome from "./components/Welcome";
 import GeneralChat from "./components/GeneralChat";
 

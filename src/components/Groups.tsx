@@ -3,6 +3,7 @@ import { onValue, ref } from "firebase/database";
 import { database } from "../services/database";
 import { auth } from "../services/auth";
 import { Link } from "react-router-dom";
+import { List, ListItemButton, ListItemText } from "@mui/material";
 
 const Groups = () => {
   const [user] = useState(() => auth.currentUser);
@@ -20,13 +21,17 @@ const Groups = () => {
   return (
     <section>
       {groups.length > 0 ? (
-        <ul>
+        <List>
           {groups.map((item, index) => (
-            <li key={index}>
-              <Link to={`/chat/group/${item}`}>{item}</Link>
-            </li>
+            <ListItemButton
+              component={Link}
+              to={`/chat/group/${item}`}
+              key={index}
+            >
+              {item}
+            </ListItemButton>
           ))}
-        </ul>
+        </List>
       ) : (
         <p>You have not any groups</p>
       )}

@@ -16,7 +16,7 @@ import { database } from "../services/database";
 import Base from "./Base";
 import Message from "./Message";
 
-import type { GeneralMessage } from "../pages/general_chat";
+import type { GeneralMessage } from "../pages/general_chat/GeneralChat";
 import ChatWindow from "./ChatWindow";
 
 const Chat = () => {

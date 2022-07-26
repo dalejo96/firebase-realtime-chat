@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { GeneralMessage } from "../pages/general_chat";
+import { GeneralMessage } from "../pages/general_chat/GeneralChat";
 import Message from "./Message";
 
 interface Props {

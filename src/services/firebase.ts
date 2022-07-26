@@ -1,13 +1,13 @@
-import {initializeApp }from "firebase/app";
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBgVoIZDINpLe_9mqy_LgYe9jehdPwFZ_M",
-  authDomain: "realtime-chat-1dcd2.firebaseapp.com",
-  databaseURL: "https://realtime-chat-1dcd2-default-rtdb.firebaseio.com",
-  projectId: "realtime-chat-1dcd2",
-  storageBucket: "realtime-chat-1dcd2.appspot.com",
-  messagingSenderId: "150658784262",
-  appId: "1:150658784262:web:b3a3a75a3f32854115b787",
+  apiKey: import.meta.env.VITE_FB_API_KEY,
+  authDomain: import.meta.env.VITE_FB_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FB_DATABASE_URL,
+  projectId: import.meta.env.VITE_FB_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FB_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FB_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FB_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

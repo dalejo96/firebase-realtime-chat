@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { auth, signInWithGoogle } from "../services/auth";
+import { auth, signInWithGoogle } from "../../services/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import Base from "./Base";
+import Base from "../../components/Base";
 import { Navigate } from "react-router-dom";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { BorderColor, Google } from "@mui/icons-material";
@@ -33,7 +33,6 @@ const Login = () => {
     return unsubscribe();
   }, []);
 
-  if (isInitializing) return <p>"Loading..."</p>;
   if (user) return <Navigate to="/chat" replace />;
 
   return (
@@ -43,35 +42,39 @@ const Login = () => {
           m: 8,
         }}
       >
-        <Container
-          maxWidth="sm"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            variant="h5"
-            align="center"
-            color="text.secondary"
-            paragraph
+        {isInitializing ? (
+          <p>"Loading..."</p>
+        ) : (
+          <Container
+            maxWidth="sm"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignContent: "center",
+              alignItems: "center",
+            }}
           >
-            If you want to create groups and share messages with your friends.
-            Sign up using a Google account.
-          </Typography>
-          {!user && (
-            <Button
-              variant="contained"
-              startIcon={<Google />}
-              onClick={logInWithProvider}
+            <Typography
+              variant="h5"
+              align="center"
+              color="text.secondary"
+              paragraph
             >
-              Log in with Google
-            </Button>
-          )}
-          {error && <span>{error}</span>}
-        </Container>
+              If you want to create groups and share messages with your friends.
+              Sign up using a Google account.
+            </Typography>
+            {!user && (
+              <Button
+                variant="contained"
+                startIcon={<Google />}
+                onClick={logInWithProvider}
+              >
+                Log in with Google
+              </Button>
+            )}
+            {error && <span>{error}</span>}
+          </Container>
+        )}
       </Box>
     </Base>
   );

@@ -16,7 +16,8 @@ import { database } from "../services/database";
 import Base from "./Base";
 import Message from "./Message";
 
-import type { GeneralMessage } from "./GeneralChat";
+import type { GeneralMessage } from "../pages/general_chat/GeneralChat";
+import ChatWindow from "./ChatWindow";
 
 const Chat = () => {
   const [user] = useState(() => auth.currentUser);
@@ -38,7 +39,7 @@ const Chat = () => {
     });
   }, []);
 
-  const submitTodo = (data: GeneralMessage) => {
+  const submitMessage = (data: GeneralMessage) => {
     if (!user) return;
     push(groupReference, {
       message: data.message,
@@ -60,7 +61,7 @@ const Chat = () => {
         >
           {`Welcome to the chat of the group: ${groupName}!`}
         </Typography>
-        <form onSubmit={handleSubmit(submitTodo)}>
+        <form onSubmit={handleSubmit(submitMessage)}>
           <Box sx={{ display: "flex" }}>
             <FormControl sx={{ m: 1, flexGrow: 1 }} variant="standard">
               <InputLabel htmlFor="input-message">Message: </InputLabel>
@@ -78,19 +79,7 @@ const Chat = () => {
             <span style={{ color: "red" }}>{errors.message?.message}</span>
           )}
         </form>
-        <Box sx={{ m: "10px", maxHeight: "400px", overflowY: "scroll" }}>
-          {messages.length > 0 ? (
-            <ul style={{ listStyleType: "none" }}>
-              {messages.map((item, index) => (
-                <li key={index}>
-                  <Message data={item} />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>The group has no messages</p>
-          )}
-        </Box>
+        <ChatWindow data={messages} />
       </Container>
     </Base>
   );

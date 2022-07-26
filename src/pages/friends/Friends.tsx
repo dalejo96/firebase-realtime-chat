@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { onValue, push } from "firebase/database";
-import { friendsRef } from "../services/database";
-import Base from "./Base";
+import { friendsRef } from "../../services/database";
+import Base from "../../components/Base";
 import {
   Box,
   Button,
@@ -37,8 +37,6 @@ const Friends = () => {
   }, []);
 
   const submitFriend = (data: Friend) => {
-    console.log("llegamos");
-
     push(friendsRef, data);
     reset();
   };

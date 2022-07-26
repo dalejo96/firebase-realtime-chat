@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "groups": {
+      ".read": "auth !== null",  
+      ".write": "auth !== null",  
+    },
+    "friends": {
+      ".read": "true",  
+      ".write": "auth !== null",  
+    },
+    "users": {
+      "$uid": {
+        ".read": "true",  
+        ".write": "$uid === auth.uid",    
+      }        
+    },
+    "generalChat": {
+      ".read": "true",
+      "$muid": {        
+        ".write": "true",        
+      	".validate": "newData.child(\"name\").exists() && newData.child(\"message\").exists()",
+      }
+    }
+  }
+}

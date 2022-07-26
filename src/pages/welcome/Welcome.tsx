@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-import Base from "./Base";
+import Base from "../../components/Base";
 
 const Welcome = () => {
   return (
@@ -31,7 +31,7 @@ const Welcome = () => {
             identify yourself.
           </Typography>
           <img
-            src="../src/images/Firebase_Logo.png"
+            src="https://www.gstatic.com/devrel-devsite/prod/vdb149cdc08c87ab249cdebfec6395e8f073056d752ca9c2d285d3b8426fcfa32/firebase/images/lockup.svg"
             width={500}
             alt="Firebase Logo"
           />

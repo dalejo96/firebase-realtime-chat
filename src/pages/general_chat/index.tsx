@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { database } from "../../services/database";
 import Base from "../../components/Base";
 import Message from "../../components/Message";
+import ChatWindow from "../../components/ChatWindow";
 
 export interface GeneralMessage {
   name: string;
@@ -92,19 +93,7 @@ const GeneralChat = () => {
           )}
           <Button type="submit">Send</Button>
         </form>
-        <Box sx={{ m: "10px", maxHeight: "400px", overflowY: "scroll" }}>
-          {messages.length > 0 ? (
-            <ul style={{ listStyleType: "none" }}>
-              {messages.map((item, index) => (
-                <li key={index}>
-                  <Message data={item} />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>The group has no messages</p>
-          )}
-        </Box>
+        <ChatWindow data={messages} />
       </Container>
     </Base>
   );

@@ -1,9 +1,9 @@
 import { Container, Typography } from "@mui/material";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { auth } from "../services/auth";
-import Base from "./Base";
-import Groups from "./Groups";
+import { auth } from "../../services/auth";
+import Base from "../../components/Base";
+import Groups from "../../components/Groups";
 
 const WelcomeChat = () => {
   const [user] = useState(() => auth.currentUser);

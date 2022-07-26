@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Chat from "./components/Chat";
 
-import WelcomeChat from "./components/WelcomeChat";
-import Login from "./components/Login";
-import Friends from "./components/Friends";
-import Welcome from "./components/Welcome";
-import GeneralChat from "./components/GeneralChat";
+import WelcomeChat from "./pages/chat";
+import Login from "./pages/login";
+import Friends from "./pages/friends";
+import GeneralChat from "./pages/general_chat";
+import Welcome from "./pages/welcome";
 
 const App = () => {
   return (

@@ -16,7 +16,7 @@ import { database } from "../services/database";
 import Base from "./Base";
 import Message from "./Message";
 
-import type { GeneralMessage } from "./GeneralChat";
+import type { GeneralMessage } from "../pages/general_chat";
 
 const Chat = () => {
   const [user] = useState(() => auth.currentUser);
@@ -38,7 +38,7 @@ const Chat = () => {
     });
   }, []);
 
-  const submitTodo = (data: GeneralMessage) => {
+  const submitMessage = (data: GeneralMessage) => {
     if (!user) return;
     push(groupReference, {
       message: data.message,
@@ -60,7 +60,7 @@ const Chat = () => {
         >
           {`Welcome to the chat of the group: ${groupName}!`}
         </Typography>
-        <form onSubmit={handleSubmit(submitTodo)}>
+        <form onSubmit={handleSubmit(submitMessage)}>
           <Box sx={{ display: "flex" }}>
             <FormControl sx={{ m: 1, flexGrow: 1 }} variant="standard">
               <InputLabel htmlFor="input-message">Message: </InputLabel>

@@ -10,9 +10,9 @@ import {
 import { onValue, push, ref } from "firebase/database";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { database } from "../services/database";
-import Base from "./Base";
-import Message from "./Message";
+import { database } from "../../services/database";
+import Base from "../../components/Base";
+import Message from "../../components/Message";
 
 export interface GeneralMessage {
   name: string;

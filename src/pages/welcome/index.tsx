@@ -31,7 +31,7 @@ const Welcome = () => {
             identify yourself.
           </Typography>
           <img
-            src="../src/images/Firebase_Logo.png"
+            src="./assets/Firebase_Logo.png"
             width={500}
             alt="Firebase Logo"
           />

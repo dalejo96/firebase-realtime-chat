@@ -30,11 +30,6 @@ const Welcome = () => {
             your questions or comments in the general chat. Be gentle and
             identify yourself.
           </Typography>
-          <img
-            src="https://www.gstatic.com/devrel-devsite/prod/vdb149cdc08c87ab249cdebfec6395e8f073056d752ca9c2d285d3b8426fcfa32/firebase/images/lockup.svg"
-            width={500}
-            alt="Firebase Logo"
-          />
         </Container>
       </Box>
     </Base>
